@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - FoodRush</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html">FoodRush</a></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Enter your location" id="location-search" aria-label="Search for location">
+                <button onclick="getLocation()">Detect <i class="fas fa-location-arrow"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="login.html">Login</a>
+                <a href="cart.html">Cart <i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="terms-section">
+        <h2>Terms of Service</h2>
+        <p>By using FoodRush, you agree to our terms. We provide food delivery services and are not responsible for the quality of food from partnered restaurants. Orders are non-refundable once confirmed. For disputes, contact us at <a href="mailto:support@foodrush.com">support@foodrush.com</a>.</p>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="social-links">
+            <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 FoodRush. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+        function showPosition(position) {
+            document.getElementById("location-search").value = `Lat: ${position.coords.latitude}, Lon: ${position.coords.longitude}`;
+        }
+    </script>
+</body>
+</html>

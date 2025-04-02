@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants - FoodRush</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html">FoodRush</a></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Enter your location" id="location-search" aria-label="Search for location">
+                <button onclick="getLocation()">Detect <i class="fas fa-location-arrow"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="login.html">Login</a>
+                <a href="cart.html">Cart <i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="restaurant-listing">
+        <h2>Restaurants Near You</h2>
+        <div class="filters">
+            <select aria-label="Filter by cuisine">
+                <option>Cuisine</option>
+                <option>Italian</option>
+                <option>Chinese</option>
+                <option>American</option>
+            </select>
+            <select aria-label="Filter by rating">
+                <option>Rating</option>
+                <option>4+ Stars</option>
+                <option>3+ Stars</option>
+            </select>
+            <select aria-label="Filter by price">
+                <option>Price</option>
+                <option>$</option>
+                <option>$$</option>
+                <option>$$$</option>
+            </select>
+        </div>
+        <div class="restaurant-grid">
+            <div class="restaurant-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a680?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pizza Palace" class="restaurant-img">
+                <h3><a href="menu.html">Pizza Palace</a></h3>
+                <p><i class="fas fa-star"></i> 4.5 | Italian | 20 min | $$</p>
+                <p class="offer">Special: 10% off orders over $20</p>
+                <button class="cta-button" onclick="location.href='menu.html'">Order Now</button>
+            </div>
+            <div class="restaurant-card">
+                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dragon Wok" class="restaurant-img">
+                <h3><a href="menu.html">Dragon Wok</a></h3>
+                <p><i class="fas fa-star"></i> 4.2 | Chinese | 25 min | $</p>
+                <button class="cta-button" onclick="location.href='menu.html'">Order Now</button>
+            </div>
+            <div class="restaurant-card">
+                <img src="https://images.unsplash.com/photo-1565299624946-baccd3051810?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Burger Bonanza" class="restaurant-img">
+                <h3><a href="menu.html">Burger Bonanza</a></h3>
+                <p><i class="fas fa-star"></i> 4.7 | American | 15 min | $$</p>
+                <button class="cta-button" onclick="location.href='menu.html'">Order Now</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="social-links">
+            <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 FoodRush. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+        function showPosition(position) {
+            document.getElementById("location-search").value = `Lat: ${position.coords.latitude}, Lon: ${position.coords.longitude}`;
+        }
+    </script>
+</body>
+</html>
